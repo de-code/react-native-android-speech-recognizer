@@ -25,14 +25,14 @@ The SpeechRecognizer can be used to integrate voice recognition into your app ra
   - Add `import de.siteof.rn.androidspeechrecognizer.RNAndroidSpeechRecognizerPackage;` to the imports at the top of the file
   - Add `new RNAndroidSpeechRecognizerPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-android-speech-recognizer'
-  	project(':react-native-android-speech-recognizer').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-android-speech-recognizer/android')
-  	```
+  ```
+  include ':react-native-android-speech-recognizer'
+  project(':react-native-android-speech-recognizer').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-android-speech-recognizer/android')
+  ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
-      compile project(':react-native-android-speech-recognizer')
-  	```
+  ```
+    compile project(':react-native-android-speech-recognizer')
+  ```
 
 ## Permissions
 
@@ -81,9 +81,9 @@ const recognise = options => new Promise(async (resolve, reject) => {
 });
 
 recognise().then(bestRecognition => {
-	console.log("recognised:", resultTextToEvent(bestRecognition));
+  console.log("recognised:", resultTextToEvent(bestRecognition));
 }).catch(error => {
-	console.log("error:", error);
+  console.log("error:", error);
 });
 ```
 
@@ -91,17 +91,17 @@ You could also request partial results like so:
 
 ```javascript
 recognizer.setRecognitionListener({
-	// ...
-	onPartialResults: event => {
-		const recognition = event.partialResults[SpeechRecognizer.RESULTS_RECOGNITION];
-		const bestRecognition = recognition[0];
-		console.log("best recognition so far:", bestRecognition);
-	}
+  // ...
+  onPartialResults: event => {
+    const recognition = event.partialResults[SpeechRecognizer.RESULTS_RECOGNITION];
+    const bestRecognition = recognition[0];
+    console.log("best recognition so far:", bestRecognition);
+  }
 });
 
 recognizer.startListening(
-	RecognizerIntent.ACTION_RECOGNIZE_SPEECH, {
-		[RecognizerIntent.EXTRA_PARTIAL_RESULTS]: true
-	}
+  RecognizerIntent.ACTION_RECOGNIZE_SPEECH, {
+    [RecognizerIntent.EXTRA_PARTIAL_RESULTS]: true
+  }
 );
 ```
