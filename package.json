@@ -1,6 +1,7 @@
 
 {
   "name": "react-native-android-speech-recognizer",
+  "repository": "de-code/react-native-android-speech-recognizer",
   "version": "0.0.1",
   "description": "Thin wrapper around Android's SpeechRecognizer API",
   "main": "index.js",
