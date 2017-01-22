@@ -16,7 +16,7 @@
   "author": "Daniel Ecer",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.29.0"
+    "react-native": "0.x"
   },
   "devDependencies": {
     "babel-plugin-module-alias": "^1.6.0",
