@@ -17,12 +17,15 @@ const {
 const eventPrefix = 'RNAndroidSpeechRecognizer_';
 RNAndroidSpeechRecognizer.setEventPrefix(eventPrefix);
 
+let emitterSubscriptions = [];
+
 const setRecognitionListener = listener => {
   const keys = Object.keys(listener);
+  emitterSubscriptions.forEach(subscription => subscription.remove());
   RNAndroidSpeechRecognizer.enableEvents(keys);
-  keys.forEach(key => {
-    NativeAppEventEmitter.addListener(eventPrefix + key, listener[key]);
-  });
+  emitterSubscriptions = keys.map(key =>
+    NativeAppEventEmitter.addListener(eventPrefix + key, listener[key])
+  );
  }
 
 const createSpeechRecognizer = (...args) => 

@@ -1,0 +1,12 @@
+{
+  "presets": ["es2015"],
+  "env": {
+    "test": {
+      "plugins": [
+        ["module-alias", [
+          { "expose": "react-native", "src": "./src/__tests__/lib/react-native.js"}
+        ]]
+      ]
+    }
+  }
+}
